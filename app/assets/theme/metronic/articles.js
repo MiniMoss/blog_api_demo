@@ -1,0 +1,10 @@
+//= require articles
+//= require ./global/global_js/datatables/media/js/jquery.dataTables.min
+//= require ./global/global_js/datatables/plugins/bootstrap/dataTables.bootstrap
+//= require ./global/global_js/bootstrap-datepicker/js/bootstrap-datepicker.min
+//= require ./global/global_js/bootstrap-datepicker/locales/bootstrap-datepicker.zh-CN.min
+//= require ./global/global_js/bootstrap-daterangepicker/moment.min
+//= require ./global/global_js/bootstrap-daterangepicker/daterangepicker
+//= require ./global/global_js/jcrop/js/jquery.color
+//= require ./global/global_js/jcrop/js/jquery.Jcrop.min
+//= require ./global/global_js/select2/select2.min

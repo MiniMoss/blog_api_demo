@@ -1,0 +1,29 @@
+<%= content_for :css_head do %>
+  <%= stylesheet_link_tag "metronic/users" %>
+<% end %>
+<%= content_for :head do %>
+  <%= javascript_include_tag "metronic/users" %>
+<% end %>
+<%= content_for :page_header do %>
+<% end %>
+<div class="col-md-12">
+  <!-- BEGIN SAMPLE TABLE PORTLET-->
+  <div class="portlet box red">
+    <div class="portlet-title">
+      <div class="caption">
+        <i class="fa fa-users fa-5x"></i>编辑用户
+      </div>
+      <div class="tools">
+        <%= link_to users_path, data: { no_turbolink: true } do %>
+          <div class="caption" style="color: white;">
+            <i class="fa fa-chevron-circle-left"></i> 返回
+            </div>
+        <% end %>
+      </div>
+    </div>
+    <div class="portlet-body">
+      <%= render 'form_edit' %>
+    </div>
+  </div>
+</div>
+<!-- END SAMPLE TABLE PORTLET-->

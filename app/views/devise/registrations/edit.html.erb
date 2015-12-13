@@ -1,0 +1,37 @@
+ <!-- DOC: Allow users to edit their password, 
+ change registration_path(resource_name) to 
+ user_registration_path(resource) (If using shared views for 
+ multiple models, you can use send("#{resource_name}_registration_path", resource)) -->
+<!-- USE FORM CONTROLS -->
+<%= content_for :css_head do %>
+  <%= stylesheet_link_tag "metronic/devise_registrations_edit" %>
+<% end %>
+<%= content_for :head do %>
+  <%= javascript_include_tag "metronic/devise_registrations_edit" %>
+<% end %>
+<%= content_for :page_header do %>
+<% end %>
+<div class="col-md-12">
+  <!-- 显示devise错误信息 -->
+  <% if resource.errors.empty? %>
+    <%= content_tag :div, devise_error_messages!, class: "alert alert-danger display-hide" %>
+  <% else%>
+    <%= content_tag :div, devise_error_messages!, class: "alert alert-danger" %>
+  <% end %>
+  <!-- BEGIN SAMPLE FORM PORTLET-->
+  <div class="portlet box red">
+    <div class="portlet-title">
+      <div class="caption">
+        <i class="fa fa-user"></i> 编辑<%= current_user.user_name %>
+      </div>
+      <div class="tools">
+      </div>
+    </div>
+    <div class="portlet-body form">
+      <div class="form-body">
+        <%= render 'edit_form' %>
+      </div>
+    </div>
+  </div>
+  <!-- END SAMPLE FORM PORTLET -->
+</div>

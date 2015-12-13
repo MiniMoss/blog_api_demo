@@ -5,3 +5,15 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+
+############################
+# For devise
+############################
+# create roles
+Role.create!([{name: 'admin'}, {name: 'moderate'}])
+
+# create User 'admin'
+User.create!(user_name: 'admin', password: 'aaaaaaaa', email: 'admin@admin.com', role_ids: '1')
+############################
+# End For devise
+############################

@@ -1,0 +1,10 @@
+/*
+* These style files below just for category management
+*= require articles
+*= require ./global/global_js/select2/select2
+*= require ./global/global_js/datatables/plugins/bootstrap/dataTables.bootstrap
+*= require ./global/global_js/bootstrap-datepicker/css/bootstrap-datepicker3.min
+*= require ./global/global_js/bootstrap-daterangepicker/daterangepicker-bs3
+*= require ./global/global_js/jcrop/css/jquery.Jcrop.min
+*= require ./global/global_css/image-crop
+*/

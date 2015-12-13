@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>MET</title>
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+    <!-- THEME CORE SCRIPTS -->
+    <!--[if lt IE 9]>
+      <%= javascript_include_tag 'metronic/global/global_js/respond.min.js' %>
+      <%= javascript_include_tag 'metronic/global/global_js/excanvas.min.js' %>
+    <![endif]-->
+    <%= javascript_include_tag 'metronic/global' %>
+    <!-- THEME CORE SCRIPTS END -->
+    <!-- LOGIN SCRIPTS -->
+    <%= javascript_include_tag 'metronic/login' %>
+    <!-- LOGIN SCRIPTS END -->
+    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+    <!-- 避免IE9以下版本出现4096错误 -->
+    <%= splited_stylesheet 'application', 10 %>
+    <!-- GLOBAL MANDATORY STYLES-->
+    <!-- <link href="http://fonts.useso.com/css?family=Open+Sans:400,300,600,700&subset=all" rel="stylesheet" type="text/css"/> -->
+    <%= stylesheet_link_tag 'metronic/global' %>
+    <!-- GLOBAL MANDATORY STYLES END -->
+    <!-- LOGIN STYLES -->
+    <%= stylesheet_link_tag 'metronic/login' %>
+    <!-- LOGIN STYLES END -->
+    <!-- THEME STYLES -->
+    <%= stylesheet_link_tag 'metronic/theme' %>
+    <!-- THEME STYLES ENDS-->
+    <%= csrf_meta_tags %>
+    <!-- <link rel="shortcut icon" href="<%= asset_path('homes/logo.ico') %>" /> -->
+    <%= yield :head %>
+  </head>
+  <body class="page-md login">
+    <!-- BEGIN SIDEBAR TOGGLER BUTTON -->
+    <div class="menu-toggler sidebar-toggler">
+    </div>
+    <!-- END SIDEBAR TOGGLER BUTTON -->
+    <!-- BEGIN LOGO -->
+    <!-- END LOGO -->
+    <!-- BEGIN LOGIN -->
+    <div class="content" style="margin-top: 100px;">
+      <!-- BEGIN LOGIN FORM -->
+      <%= render "form"%>
+      <!-- END LOGIN FORM -->
+      <!-- BEGIN REGISTRATION FORM -->
+      <!-- END REGISTRATION FORM -->
+    </div>
+    <div class="copyright">
+      2015 © MET.
+  </div>
+    <!-- END LOGIN -->
+    <script>
+      jQuery(document).ready(function() {
+        Metronic.init(); // init metronic core components
+        Layout.init(); // init current layout
+        Login.init();
+        Demo.init();
+      });
+    </script>
+    <!-- END JAVASCRIPTS -->
+  </body>
+  <!-- END BODY -->

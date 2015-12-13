@@ -1,0 +1,47 @@
+<!-- for Admin to edit user -->
+<%= form_for @user, html: {class:"form-horizontal", role:"form"} do |f| %>
+  <div class="form-group">
+    <%= f.label :user_name, "用户名", class:"col-sm-2 control-label"%>
+    <div class="col-sm-8">
+      <%= f.text_field :user_name, class:"form-control"%>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :email, "邮箱", class:"col-sm-2 control-label"%>
+    <div class="col-sm-8">
+      <%= f.text_field :email, class:"form-control"%>
+    </div>
+  </div>
+  <% if can? :create, @user %>
+    <div class="form-group">
+      <label class="col-sm-2 control-label" for="user_email">权限</label>
+      <div class="col-sm-5" style="margin-top: 5px;">
+        <% Role.all.each do |role| %>
+          <%= radio_button_tag "user[role_ids][]", role.id, @user.role_ids.include?(role.id), style:"margin-right: 5px;" %>
+          <%= label_tag role.name, nil, style:"margin-right: 5px;"%>
+        <% end %>
+      </div>
+      <div class="col-sm-5" style="margin-top: 5px;">
+        <i>(注意，请勿轻易授予用户admin权限)</i>
+      </div>
+    </div>
+  <% end %>
+  <div class="form-group">
+    <%= f.label :password, "重置密码", class:"col-sm-2 control-label"%>
+    <div class="col-sm-8">
+      <%= f.password_field :password, class:"form-control"%>
+      <i>(如无需重置密码，留空)</i>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :password_confirmation, "确认密码", class:"col-sm-2 control-label"%>
+    <div class="col-sm-8">
+      <%= f.password_field :password_confirmation, class:"form-control"%>
+    </div>
+  </div>
+  <div class="form-group">
+    <div class="col-sm-offset-2 col-sm-10">
+      <%= f.submit '更新', class:"btn btn-primary"%>
+    </div>
+  </div>
+<% end %>

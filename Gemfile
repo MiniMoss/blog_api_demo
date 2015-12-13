@@ -15,7 +15,7 @@ gem 'coffee-rails', '~> 4.1.0'
 # gem 'therubyracer', platforms: :ruby
 
 # Use mysql
-gem 'mysql2'
+gem 'mysql2', '~> 0.3.18'
 # Use SCSS for stylesheets
 #gem 'bootstrap-sass'
 gem 'autoprefixer-rails'

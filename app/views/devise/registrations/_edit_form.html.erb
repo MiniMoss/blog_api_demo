@@ -1,0 +1,44 @@
+<%= form_for(resource, as: resource_name, url: send("#{resource_name}_registration_path", resource), html: { method: :patch, class:"form-horizontal", role: "form" }) do |f| %>
+  <div class="form-group">
+    <%= f.label :email, "邮箱", for: "inputEmail12" , class:"col-sm-2 control-label" %>
+    <div class="col-md-4">
+      <div class="input-icon">
+        <i class="fa fa-envelope"></i>
+        <%= f.text_field :email, type: "email", class: "form-control", id: "inputEmail12", placeholder: "Email"%>
+      </div>
+    </div>
+  </div>
+  <div class="form-group">
+    <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+      <div>Currently waiting confirmation for:
+              <%= resource.unconfirmed_email %>
+      </div>
+    <% end %>
+  </div>
+  <div class="form-group">
+    <%= f.label  :password, "新密码", for: "inputPassword1", class:"col-sm-2 control-label"%>
+    <div class="col-md-4">
+      <%= f.text_field :password, type: "password", class: "form-control", id: "inputPassword1", placeholder: "New Password" %>
+      (如无需更改密码，留空)
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label  :password_confirmation , "确认新密码", for: "inputPassword2", class:"col-sm-2 control-label" %>
+    <div class="col-md-4">
+      <%= f.text_field :password_confirmation, type: "password", class: "form-control", id: "inputPassword2", placeholder: "Confirm Password" %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :current_password , "当前密码", class:"col-sm-2 control-label", for: "inputPassword3" %>
+    <div class="col-md-4">
+      <%= f.text_field :current_password, type: "password", class: "form-control", id: "inputPassword3", placeholder: "Current Password" %>
+      (需要输入当前密码确认修改)
+    </div>
+  </div>
+</div>
+<div class="form-actions">
+  <div class="col-md-offset-2 col-md-10">
+    <%= f.button "更新", type:"submit", class:"btn green" %>
+  </div>
+</div>
+<% end %>

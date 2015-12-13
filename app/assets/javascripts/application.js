@@ -10,7 +10,7 @@
 // Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
 // about supported directives.
 //
-//= require jquery
+// jquery_ujs 用于devise的登录机制,勿删
 //= require jquery_ujs
+//= require kindeditor
 //= require turbolinks
-//= require_tree .
