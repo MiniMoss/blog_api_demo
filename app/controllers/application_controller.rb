@@ -28,4 +28,6 @@ class ApplicationController < ActionController::Base
       'application'
     end
   end
+
+  # API token验证 Authenticable module中
 end

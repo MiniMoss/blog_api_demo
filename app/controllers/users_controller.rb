@@ -15,6 +15,7 @@ class UsersController < ApplicationController
   # 解决办法在application_controller.rb中加入相应语句
   # https://github.com/ryanb/cancan/issues/835
   def create
+    binding.pry
     @user = User.new(user_params)
     if @user.save
       respond_to do |format|
