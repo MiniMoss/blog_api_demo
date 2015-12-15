@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   load_and_authorize_resource
-  before_action :set_user, only: [:update, :destroy]
+  before_action :set_user, only: [:update, :destroy, :renew_token]
   before_filter :authenticate_user!
 
   def index
@@ -15,11 +15,13 @@ class UsersController < ApplicationController
   # 解决办法在application_controller.rb中加入相应语句
   # https://github.com/ryanb/cancan/issues/835
   def create
-    binding.pry
     @user = User.new(user_params)
     if @user.save
+      # 创建token
+      @secret = @user.authentication_tokens.create.secret
+
       respond_to do |format|
-        format.html { redirect_to users_path, notice: '用户创建成功.' }
+        format.html { redirect_to users_path, notice: '用户创建成功. Secret: ' + @secret }
       end
     else
       respond_to do |format|
@@ -73,6 +75,20 @@ class UsersController < ApplicationController
       format.html { redirect_to users_path, notice: '用户删除成功.' }
     end
   end
+
+  def renew_token
+    if @user.authentication_tokens.first.destroy
+      @secret = @user.authentication_tokens.create.secret
+      respond_to do |format|
+        format.html { redirect_to users_path, notice: '更新Secret成功. Secret: ' + @secret }
+      end
+    else
+      respond_to do |format|
+        format.html { redirect_to users_path, alert: '更新Secret失败.' }
+      end
+    end
+  end
+
 
   private
   def user_params

@@ -10,6 +10,8 @@ Rails.application.routes.draw do
   end
 
   scope '/admin' do
-    resources :users
+    resources :users do
+      get 'renew_token', on: :member
+    end
   end
 end

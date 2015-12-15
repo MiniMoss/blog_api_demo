@@ -3,7 +3,7 @@ class User < ActiveRecord::Base
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :recoverable, :rememberable, :trackable, :validatable
   has_and_belongs_to_many :roles
-  has_many :authentication_tokens
+  has_many :authentication_tokens, dependent: :destroy
 
   before_save { self.email = email.downcase }
 
