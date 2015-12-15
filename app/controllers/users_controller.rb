@@ -21,7 +21,7 @@ class UsersController < ApplicationController
       @secret = @user.authentication_tokens.create.secret
 
       respond_to do |format|
-        format.html { redirect_to users_path, notice: '用户创建成功. Secret: ' + @secret }
+        format.html { redirect_to users_path, notice: '用户 ' + user.user_name + ' 创建成功. Secret: ' + @secret }
       end
     else
       respond_to do |format|
@@ -80,11 +80,11 @@ class UsersController < ApplicationController
     if @user.authentication_tokens.first.destroy
       @secret = @user.authentication_tokens.create.secret
       respond_to do |format|
-        format.html { redirect_to users_path, notice: '更新Secret成功. Secret: ' + @secret }
+        format.html { redirect_to users_path, notice: @user.user_name + ' 更新Secret成功. Secret: ' + @secret }
       end
     else
       respond_to do |format|
-        format.html { redirect_to users_path, alert: '更新Secret失败.' }
+        format.html { redirect_to users_path, alert: @user.user_name + ' 更新Secret失败.' }
       end
     end
   end
