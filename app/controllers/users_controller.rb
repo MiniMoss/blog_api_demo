@@ -21,7 +21,7 @@ class UsersController < ApplicationController
       @secret = @user.authentication_tokens.create.secret
 
       respond_to do |format|
-        format.html { redirect_to users_path, notice: '用户 ' + user.user_name + ' 创建成功. Secret: ' + @secret }
+        format.html { redirect_to users_path, notice: '用户 ' + @user.user_name + ' 创建成功. Secret: ' + @secret }
       end
     else
       respond_to do |format|
